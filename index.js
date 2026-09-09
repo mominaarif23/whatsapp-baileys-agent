@@ -617,12 +617,19 @@ function startOrdersDashboard() {
     app.use(express.static(path2.join(__dirname, 'public')));
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
+
+    
+    app.set('trust proxy', 1);
+
     app.use(
         session({
             secret: process.env.SESSION_SECRET || 'dev_secret_change_me',
             resave: false,
             saveUninitialized: false,
-            cookie: { maxAge: 8 * 60 * 60 * 1000 }
+            cookie: { 
+                maxAge: 8 * 60 * 60 * 1000,
+                sameSite: 'lax'
+            }
         })
     );
 
