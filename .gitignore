@@ -1,0 +1,14 @@
+# Secrets - never commit these
+.env
+auth_info/
+
+# Business/customer data - keep private
+registered_users.json
+active_deals.json
+
+# Dependencies
+node_modules/
+
+node_modules/
+.env
+auth_info/

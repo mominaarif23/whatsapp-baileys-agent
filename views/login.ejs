@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login - <%= businessName %></title>
+<%- include('partials/head') %>
+</head>
+<body>
+<div class="login-wrap">
+  <div class="login-card">
+    <h2><%= businessName %></h2>
+    <div class="sub">Staff Dashboard Login</div>
+    <% if (error) { %><div class="error-msg">Invalid username or password.</div><% } %>
+    <form method="POST" action="/login">
+      <input type="text" name="username" placeholder="Username" required autofocus>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit">Log In</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

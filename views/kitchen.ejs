@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title><%= title %> - <%= businessName %></title>
+<%- include('partials/head') %>
+</head>
+<body>
+<div class="layout">
+  <%- include('partials/sidebar') %>
+  <div class="main">
+    <div class="page-title"><%= title %></div>
+    <div class="page-sub"><%= subtitle %></div>
+    <div id="orders">Loading...</div>
+  </div>
+</div>
+<script src="/js/kitchen.js"></script>
+</body>
+</html>

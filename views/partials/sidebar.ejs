@@ -1,0 +1,10 @@
+<div class="sidebar">
+  <div class="brand"><%= businessName %></div>
+  <div class="role-tag"><%= user.username %> - <%= user.role %></div>
+  <% navItems.forEach(function(item) { %>
+    <a href="<%= item.href %>" class="<%= item.href === activeHref ? 'active' : '' %>"><%= item.label %></a>
+  <% }); %>
+  <form class="logout-form" method="POST" action="/logout">
+    <a href="#" onclick="this.closest('form').submit()">Log out</a>
+  </form>
+</div>

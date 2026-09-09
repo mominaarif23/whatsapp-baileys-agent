@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title><%= title %> - <%= businessName %></title>
+<%- include('partials/head') %>
+</head>
+<body>
+<div class="layout">
+  <%- include('partials/sidebar') %>
+  <div class="main">
+    <div class="page-title"><%= title %></div>
+    <div class="page-sub"><%= subtitle %></div>
+
+    <div class="stats" id="stats"></div>
+
+    <div class="toolbar">
+      <div class="view-toggle">
+        <button id="tableViewBtn" class="active" onclick="switchView('table')">Table View</button>
+        <button id="cardViewBtn" onclick="switchView('card')">Card View</button>
+      </div>
+    </div>
+
+    <div class="search-filter-row">
+      <input class="search-box" id="searchBox" placeholder="Search orders..." oninput="render()">
+      <div class="filter-pills" id="filterPills">
+        <div class="filter-pill active" data-filter="all" onclick="setFilter('all')">All</div>
+        <div class="filter-pill" data-filter="pending" onclick="setFilter('pending')">Pending</div>
+        <div class="filter-pill" data-filter="preparing" onclick="setFilter('preparing')">Preparing</div>
+        <div class="filter-pill" data-filter="ready" onclick="setFilter('ready')">Ready</div>
+        <div class="filter-pill" data-filter="delivered" onclick="setFilter('delivered')">Delivered</div>
+      </div>
+    </div>
+
+    <div id="tableViewWrap" class="orders-table-wrap">
+      <table class="orders-table">
+        <thead>
+          <tr>
+            <th>Order #</th><th>Customer</th><th>Items</th><th>Table / Address</th>
+            <th>Total</th><th>Status</th><th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+
+    <div id="cardViewWrap" class="cards-grid" style="display:none;"></div>
+
+    <div class="modal-backdrop" id="detailsModal">
+      <div class="modal-box" id="detailsModalContent"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.IS_ADMIN = <%- JSON.stringify(user.role === 'admin') %>;
+  window.PAYMENT_METHODS = <%- JSON.stringify(paymentMethods) %>;
+</script>
+<script src="/js/orders.js"></script>
+</body>
+</html>

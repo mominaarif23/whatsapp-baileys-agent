@@ -1,0 +1,125 @@
+/* ---- Elegant, professional color scheme: deep teal + warm copper ---- */
+:root {
+  --primary: #0f4c4c;
+  --primary-dark: #0a3535;
+  --accent: #cbdae5;
+  --bg: #f7faf9;
+  --card: #ffffff;
+  --text: #202b29;
+  --muted: #6b7674;
+  --border: #e0e6e4;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: 'Segoe UI', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+}
+h1, h2, .brand { font-family: Georgia, 'Times New Roman', serif; }
+
+/* ---- Layout ---- */
+.layout { display: flex; min-height: 100vh; }
+.sidebar {
+  width: 220px; background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+  color: #eef5f3; padding: 24px 0; flex-shrink: 0;
+}
+.sidebar .brand { padding: 0 20px 20px; font-size: 19px; font-weight: 600; color: var(--accent); border-bottom: 1px solid rgba(255,255,255,0.15); margin-bottom: 10px; }
+.sidebar .role-tag { padding: 0 20px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: rgba(255,255,255,0.6); margin-bottom: 16px; }
+.sidebar a { display: block; padding: 11px 20px; color: #eef5f3; text-decoration: none; font-size: 14px; border-left: 3px solid transparent; }
+.sidebar a:hover, .sidebar a.active { background: rgba(255,255,255,0.08); border-left-color: var(--accent); }
+.sidebar .logout-form { padding: 20px; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.15); }
+.sidebar .logout-form a { padding: 8px 0; color: #f0d9c4; font-size: 13px; }
+.main { flex: 1; padding: 32px 36px; }
+.page-title { font-size: 24px; margin: 0 0 4px; color: var(--primary-dark); }
+.page-sub { color: var(--muted); font-size: 13px; margin-bottom: 26px; }
+
+/* ---- Stats ---- */
+.stats { display: flex; gap: 14px; margin-bottom: 24px; flex-wrap: wrap; }
+.stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 20px; flex: 1; min-width: 110px; text-align: center; }
+.stat-card .num { font-size: 24px; font-weight: 700; color: var(--primary); }
+.stat-card .label { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+/* ---- Order cards ---- */
+.order { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; margin-bottom: 14px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+.order.delivered { opacity: 0.55; }
+.order-top { display: flex; justify-content: space-between; align-items: flex-start; }
+.customer-name { font-weight: 600; font-size: 15px; }
+.items { margin-top: 6px; }
+.address, .total { color: var(--muted); font-size: 13px; margin-top: 4px; }
+
+/* ---- Status badges ---- */
+.status { display: inline-block; padding: 3px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px; }
+.status.pending { background: #fdecc8; color: #8a6d00; }
+.status.preparing { background: #d9ecec; color: #0a4b4b; }
+.status.ready { background: #ecdfd0; color: #7a4a1e; }
+.status.prepared { background: #d9ecec; color: #0a4b4b; }
+.status.delivered { background: #dcead9; color: #2c5e2e; }
+
+/* ---- Buttons ---- */
+.actions { margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
+button { padding: 7px 14px; border: none; border-radius: 7px; cursor: pointer; font-size: 13px; font-weight: 500; }
+button:hover { opacity: 0.9; }
+.btn-accept { background: var(--accent); color: white; }
+.btn-ready { background: var(--primary); color: white; }
+.btn-prepared { background: var(--primary); color: white; }
+.btn-delivered { background: #2c7a2e; color: white; }
+.btn-remove { background: #cbdae5; color: white; }
+.btn-link { background: none; color: var(--primary); text-decoration: underline; padding: 4px 0; font-size: 13px; }
+.btn-cancel { background: #eee; color: var(--text); }
+
+.empty { text-align: center; color: var(--muted); padding: 40px 0; }
+.coming-soon { background: var(--card); border: 1px dashed var(--border); border-radius: 12px; padding: 60px 30px; text-align: center; color: var(--muted); }
+.coming-soon .icon { font-size: 36px; margin-bottom: 10px; }
+
+/* ---- Toolbar, search, filters ---- */
+.toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.view-toggle { display: flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.view-toggle button { border-radius: 0; background: var(--card); color: var(--text); border-right: 1px solid var(--border); }
+.view-toggle button:last-child { border-right: none; }
+.view-toggle button.active { background: var(--primary); color: white; }
+.search-filter-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; align-items: center; }
+.search-box { flex: 1; min-width: 200px; padding: 9px 14px; border: 1px solid var(--border); border-radius: 8px; font-size: 13px; }
+.filter-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+.filter-pill { padding: 6px 14px; border: 1px solid var(--border); border-radius: 20px; background: var(--card); color: var(--muted); font-size: 12px; cursor: pointer; }
+.filter-pill.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+/* ---- Table view ---- */
+.orders-table-wrap { overflow-x: auto; background: var(--card); border: 1px solid var(--border); border-radius: 12px; }
+table.orders-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 640px; }
+table.orders-table th { text-align: left; padding: 12px 14px; background: #eef3f2; color: var(--muted); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px; border-bottom: 1px solid var(--border); }
+table.orders-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+table.orders-table tr:last-child td { border-bottom: none; }
+table.orders-table tr:hover td { background: #f7faf9; }
+
+/* ---- Card view ---- */
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+
+/* ---- Modal ---- */
+.modal-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45); align-items: center; justify-content: center; z-index: 50; }
+.modal-backdrop.open { display: flex; }
+.modal-box { background: var(--card); border-radius: 14px; padding: 26px 28px; width: 380px; max-width: 90vw; max-height: 85vh; overflow-y: auto; }
+.modal-box h3 { margin: 0 0 14px; color: var(--primary-dark); }
+.modal-row { margin-bottom: 10px; font-size: 13px; }
+.modal-row .label { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 2px; }
+.modal-actions { margin-top: 20px; display: flex; justify-content: space-between; align-items: center; }
+.btn-delete-link { background: none; color:  #cbdae5; font-size: 12px; text-decoration: underline; padding: 4px 0; }
+.confirm-box { text-align: center; }
+.confirm-box p { color: var(--text); }
+.confirm-actions { display: flex; gap: 10px; justify-content: center; margin-top: 16px; }
+
+/* ---- Login ---- */
+.login-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+.login-card { background: var(--card); border-radius: 14px; padding: 36px 32px; width: 320px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); border: 1px solid var(--border); }
+.login-card h2 { margin: 0 0 4px; color: var(--primary); }
+.login-card .sub { color: var(--muted); font-size: 13px; margin-bottom: 20px; }
+.login-card input { width: 100%; padding: 10px 12px; margin-bottom: 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; }
+.login-card button { width: 100%; background: var(--primary); color: white; padding: 10px; font-size: 14px; }
+.error-msg { color: #cbdae5; font-size: 13px; margin-bottom: 10px; }
+
+/* ---- Responsive ---- */
+@media (max-width: 640px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; padding: 12px 0; }
+  .main { padding: 20px; }
+}
